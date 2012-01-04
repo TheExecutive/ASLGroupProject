@@ -1,0 +1,16 @@
+Coldbox Notes and Basics
+written by Troy Grant
+1/3/12
+--------------------------------------------
+
+Installing Coldbox-
+Download Coldbox (Bundle Version) and place it directly in your webroot folder under Railo. Rename it to "coldbox". You can NOT have it nested inside another folder inside webroot, it has to be ../webroot/coldbox. If you do this, you will get a Railo error stating that it cannot find Coldbox.
+
+---------------------------------------------
+
+Testing Coldbox
+Inside the coldbox folder should be a folder called ApplicationTemplates. Inside that folder should be a folder called SuperSimple. Take that folder, make a copy of it and put it directly in the webroot folder. Rename it to something you can rememeber. Start up Railo and navigate to that folder using your localhost:9999/yourfoldername. If it is working correctly you should see a "Welcome to Coldbox" page.
+
+
+
+-------------------------------
