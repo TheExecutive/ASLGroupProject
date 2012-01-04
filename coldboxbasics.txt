@@ -11,6 +11,31 @@ Download Coldbox (Bundle Version) and place it directly in your webroot folder u
 Testing Coldbox
 Inside the coldbox folder should be a folder called ApplicationTemplates. Inside that folder should be a folder called SuperSimple. Take that folder, make a copy of it and put it directly in the webroot folder. Rename it to something you can rememeber. Start up Railo and navigate to that folder using your localhost:9999/yourfoldername. If it is working correctly you should see a "Welcome to Coldbox" page.
 
+---------------------------------------------
 
+Learning Coldbox
+Open up the files, read the code, and familiarize yourself with how Coldbox works. Here are some links I've found to help get you started.
 
--------------------------------
+Vimeo Video Tutorials from the Coldbox creator, Luis Majano
+http://vimeo.com/lmajano/videos
+http://vimeo.com/26744362 (this particular one was really helpful)
+
+Official Coldbox Wiki 
+(I haven't found this terribly helpful, it seems to assume you know what you're doing, and we don't yet, obviously)
+http://wiki.coldbox.org/
+
+----------------------------------------------
+
+Using Coldbox
+
+Now that you watched the videos, you know a little bit more about Coldbox, so let's get to using it ourselves. You shouldn't need to mess with the index.cfm or the Application.cfc in the folder, these are pre-made by Coldbox. Firstly, open up the Coldbox.cfc in the config folder and take a look at it. This is an object Coldbox uses to config your app. Look under Implicit Events for the one that says "defaultEvent". This is specifying the function that will get called if there is no event being run. In other words, this function will run when the app is first loaded. "general.index" means the index function in the General.cfc component file. Find this file (handlers/General.cfc) and open it up so you can see exactly what this is doing.
+
+Inside the cffunction index, you should see that it's taking three arguments, event, rc, prc. Ignore these for right now and focus on this line.
+
+	<cfset event.setView("General/index")>
+	
+This line is doing pretty much the same thing that our views.getView() method did back in SSL. Inside the views folder, there is a folder called General (don't get this confused with the General.cfc file you have open right now) and a file inside called index.cfm that's being called as the view.
+
+So what this all boils down to is that when the application first runs, this function is getting called.
+
+Try making your own view to see how this is working.
