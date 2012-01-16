@@ -1,0 +1,631 @@
+/* 	project	:	hood portfolio app
+	date	: 	Jan.06.2012
+	team	:	Marcos DeSousa
+				Troy Grant
+				Robert Babcock
+*/
+
+/* ------------------- Global ------------------ */
+@font-face {
+	font-family: Tw Cen MT;
+	src: url('font/Tw Cen MT.ttf');
+}
+
+a:focus{
+	outline: none;
+}
+
+.clear{
+	clear: both;
+}
+
+.hideThis {
+	display: none;
+}
+
+button.greenBtn {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	color: #ffffff;
+	padding: 2px 20px;
+	background: -moz-linear-gradient(
+		top,
+		#99db1f 0%,
+		#79ab38);
+	background: -webkit-gradient(
+		linear, left top, left bottom, 
+		from(#99db1f),
+		to(#79ab38));
+	border-radius: 5px;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	border: 1px solid #618c30;
+	-moz-box-shadow:
+		0px 1px 3px rgba(000,000,000,0.5),
+		inset 0px 0px 2px rgba(255,255,255,0.7);
+	-webkit-box-shadow:
+		0px 1px 3px rgba(000,000,000,0.5),
+		inset 0px 0px 2px rgba(255,255,255,0.7);
+	text-shadow:
+		0px -1px 0px rgba(000,000,000,0.4),
+		0px 1px 0px rgba(255,255,255,0.3);
+	cursor: pointer;
+}
+
+button.loginBtn:hover {
+	-moz-box-shadow:
+		0px 1px 5px rgba(000,000,000,0.5),
+		inset 0px 0px 2px rgba(255,255,255,0.7);
+	-webkit-box-shadow:
+		0px 1px 5px rgba(000,000,000,0.5),
+		inset 0px 0px 2px rgba(255,255,255,0.7);
+	text-shadow:
+		0px -1px 0px rgba(000,000,000,0.4),
+		0px 1px 0px rgba(255,255,255,0.3);
+	border: 1px solid #fff;
+}
+
+a{
+	color: #333;
+	text-decoration: underline;
+}
+
+a:hover,a:visited{
+	color: #ce3d3d;
+	text-decoration: none;
+}
+
+.title{
+	font-weight: bold;
+}
+
+.title{
+	font: bold 2em/1 "Tw Cen MT";
+	color: #333;
+	margin: 15px 0 0 0;
+	padding: 0px;
+}
+
+.title:first-child{
+	margin-top: -5px;
+}
+
+.subTitle{
+	font: bold 1.4em/1 "Tw Cen MT";
+	color: #888;
+	margin-top: -5px;
+}
+
+.subSource{
+	font: normal .9em/1 "Tw Cen MT";
+	color: #888;
+}
+
+.description{
+	background: url('../images/pattern/50opacity.png') repeat;
+	position: absolute;
+	bottom: 0px;
+	left: 0px;
+	padding: 20px;
+}
+
+/* ------------------- Body ------------------ */
+body{
+	margin: 0px;
+	padding: 0px;
+	background: url('../images/pattern/brick-light.png') repeat;
+	font: normal 62.5% "Tw Cen MT";
+}
+
+/* ------------------- Wrapper ------------------ */
+.wrapper{
+	width: 960px;
+	margin: 0 auto;
+	position: relative;
+	font: normal 1.6em/1.1 "Tw Cen MT";
+}
+
+/* ----- left side ----- */
+.leftSide{
+	width: 610px;
+	float: left;
+	color: #333;
+	min-height: 370px;
+	margin-top: 40px;
+}
+
+.leftSide .title{
+	margin-top: 0px;
+}
+
+.leftSide .subContent{
+	text-align: justify;
+}
+
+.leftSide .subContent p{
+	text-indent: 25px;
+}
+
+/* ----- right side ----- */
+.rightSide{
+	float: left;
+	padding: 0px 0px 0px 30px;
+	width: 320px;
+	color: #333;
+	margin-top: 40px;
+	position: relative;
+}
+
+/* ------------------- Banner ------------------ */
+#banner{
+	height: 150px;
+	background: url('../images/pattern/brick-dark.png') repeat;
+	margin: 0px;
+	padding: 20px 0px 0px 0px;
+	color: #ffffff;
+	-moz-box-shadow: 0 0 5px #888;
+	-webkit-box-shadow: 0 0 5px#888;
+	box-shadow: 0 5px 5px #888;
+	border-bottom: 2px solid #b7a4a6;
+	color: #fff;
+}
+
+#banner a{
+	color: #ffffff;
+	text-decoration: none;
+}
+
+#banner a:hover{
+	font-weight: bold;
+}
+
+/* ----- logo ----- */
+#logo{
+	float: left;
+	margin-top: 10px;
+}
+
+/* ----- login ----- */
+.login-dropdown{
+	width: 202px;
+	display: none;
+}
+
+#login{
+	float: left;
+	position: absolute;
+	top: 42px;
+	right: 0;
+}
+
+#login a{
+	text-align: right;
+	display: block;
+	width: 200px;
+	margin-bottom: 5px;
+}
+
+.logout-link{
+	float: right;
+}
+
+#login .logout-link a{
+	display: inline;
+	text-decoration: underline;
+}
+
+#login .logout-link a:hover{
+	text-decoration: none;
+	font-weight: normal;
+}
+
+#login .input-field input{
+	width: 100px;
+	float: left;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	border: 1px solid #ffffff;
+	-moz-box-shadow: inset 0 0 5px #888;
+	-webkit-box-shadow: inset 0 0 5px#888;
+	box-shadow: inset 0 0 5px #888;
+	padding: 3px 5px;
+	color: #555;
+}
+
+#login .input-label{
+	clear: left;
+	float: left;
+	width: 80px;
+	font-weight: bold;
+	margin-right: 10px;
+}
+
+#login .login-section{
+	height: 30px;
+	text-align: right;
+}
+
+
+/* ------------------- Navigation ------------------ */
+#navigation{
+	color: #333;
+	background-color: #dedede;
+	padding: 10px;
+	-webkit-border-radius: 0px 0px 10px 10px;
+	-moz-border-radius: 0px 0px 10px 10px;
+	border-radius: 0px 0px 10px 10px;
+	background: url('../images/pattern/10opacity.png') repeat;
+}
+
+#navigation .projectName{
+	font-weight: bold;
+}
+
+/* ------------------- Featured SS ------------------ */
+.featuredSSphoto img{
+	border: 5px solid #ce3d3d;
+	width: 601px;
+	-moz-box-shadow: 0 0 5px #888;
+	-webkit-box-shadow: 0 0 5px#888;
+	box-shadow: 0 0 5px #888;
+}
+
+.featuredSS{
+	position: relative;
+	color: white;
+}
+
+.featuredSS .description{
+	left: 5px;
+	right: 4px;
+	bottom: 5px;
+}
+
+/* ------------------- Featured Project ------------------ */
+.featuredProjectphoto img{
+	border: 5px solid #ce3d3d;
+	width: 300px;
+	-moz-box-shadow: 0 0 5px #888;
+	-webkit-box-shadow: 0 0 5px#888;
+	box-shadow: 0 0 5px #888;
+	margin-top: 35px;
+}
+
+.featuredSS{
+	position: relative;
+	color: white;
+}
+
+.featuredProjectphoto{
+	position: relative;
+	width: 300px;
+	font: bold 1.4em/1 "Tw Cen MT";
+}
+
+.featuredProjectPhotoTitle{
+	position: absolute;
+	width: 280px;
+	padding: 5px 10px;
+	bottom: 5px;
+	left: 5px;
+	right: 0px;
+	background: url('../images/pattern/50opacity.png') repeat;
+	color: white;
+}
+
+/* ------------------- Thumbnail ------------------ */
+.thumbNail{
+	cursor: pointer;
+	border: 5px solid #206ba4;
+	margin-left: 7px;
+	margin-top: 20px;
+	float: left;
+	position: relative;
+	height: 134px;
+}
+
+.thumbNail:hover{
+	border: 5px solid #ffffff;
+	-moz-box-shadow: 0 0 5px #888;
+	-webkit-box-shadow: 0 0 5px#888;
+	box-shadow: 0 0 10px #888;
+}
+
+.thumbNail-title{
+	background: url('../images/pattern/50opacity.png') repeat;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 124px;
+	height: 124px;
+	color: white;
+	padding: 5px;
+	font: bold 2em/1 "Tw Cen MT";
+	overflow: hidden;
+}
+
+.rightSide .subContent p{
+	text-indent: 30px;
+}
+
+
+.leftSide .featuredSSphotoTitle{
+	font: bold 1.5em/1 "Tw Cen MT";
+	margin: -15px 0 5px 0;
+}
+
+.leftSide .featuredSSphotoDescription{
+	font: normal 1em/.9 "Tw Cen MT";
+}
+
+/* ----- uploadify ----- */
+.uploadifyBox{
+	width: 374px;
+	margin-top: 20px;
+	float: left;
+	min-height: 250px;
+	position: relative;
+}
+
+#uploadifyitUploader:hover{
+	-moz-box-shadow: 0 0 1px #888;
+	-webkit-box-shadow: 0 0 1px#888;
+	box-shadow: 0 0 5px #888;
+}
+
+#uploadbutton{
+	background: url('../images/addThisYo-btn.png') no-repeat;
+	display: block;
+	text-indent: -2000px;
+	width: 120px;
+	height: 30px;
+	margin-top: 20px;
+	margin-right: 10px;
+	float: left;
+}
+
+#uploadbutton:hover{
+	-moz-box-shadow: 0 0 1px #888;
+	-webkit-box-shadow: 0 0 1px#888;
+	box-shadow: 0 0 5px #888;
+}
+
+#clearbutton{
+	background: url('../images/clear-icon.png') no-repeat;
+	background-position: -38px 0px;
+	display: block;
+	text-indent: -2000px;
+	width: 27px;
+	height: 35px;
+	margin-top: 20px;
+	float: left;
+}
+
+.uploadifyBox #clearbutton{
+	position: absolute;
+	right: 20px;
+	top: 30px;
+	margin: -30px 10px 0px 0px;
+	border-radius: 3px;
+	-moz-border-radius: 3px;
+	-webkit-border-radius: 3px;
+}
+
+#clearbutton:hover{
+	background-position: -3px 0px;
+}
+
+/* ----- new project form ----- */
+.formTips{
+	float: left;
+	width: 230px;
+	font: normal 1.1em/1.1 "Tw Cen MT";
+	margin-top: 20px;
+}
+
+.formTips ul{
+	margin: 0px;
+	padding: 0px;
+	list-style: inside;
+}
+
+.formTips li{
+	margin-bottom: 10px;
+}
+
+.formSection input, .formSection textarea{
+	font: normal .9em/1 "Tw Cen MT";
+	color: #888;
+	width: 95%;
+	padding: 5px 10px;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	border: 1px solid #888;
+}
+
+.formSection textarea{
+	min-height: 200px;
+	max-height: 400px;
+	min-width: 580px;
+	max-width: 580px;
+}
+
+.errorCheck{
+	float: right;
+	color: #cd3d3d;
+	margin-right: 10px;
+	display: none;
+}
+
+.formSection .errorCheck{
+	margin-top: -20px;
+}
+
+/* ----- sign up form ----- */
+.formSection button.greenBtn{
+	margin-top: 10px;
+	width: 325px;
+	height: 30px;
+}
+
+.SignUp-uploadifyBox{
+	width: 374px;
+	margin: 10px 0;
+	float: left;
+	position: relative;
+}
+
+.SignUperrorCheck{
+	float: right;
+	color: #cd3d3d;
+	margin-top: 5px;
+	font: normal .8em/.9 "Tw Cen MT";
+	display: none;
+}
+
+/* ----- user page info ----- */
+.profilePhoto{
+	float: left;
+	max-width: 220px;
+	margin: 0px 20px 10px 0px;
+	border: 5px solid #fff;
+	-moz-box-shadow: 0 0 5px #888;
+	-webkit-box-shadow: 0 0 5px#888;
+	box-shadow: 0 0 5px #888;
+	position: relative;
+}
+
+.profilePhoto .userContact{
+	background: url('../images/pattern/50opacity.png') repeat;
+	font: normal .9em/.9 "Tw Cen MT";
+	color: #fff;
+	padding: 10px 0px 5px 0px;
+	width: 100%;
+	height: 20px;
+	position: absolute;
+	bottom: 0px;
+	left: 0px;
+}
+
+.profilePhoto .userContactContent{
+	padding: 0px 10px;
+	text-align: center;
+}
+
+.leftSide .title input{
+	font: bold 1em/1 "Tw Cen MT";
+	color: #333;
+	padding: 5px 10px;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	border: 1px solid #888;
+	width: 150px;
+}
+
+.leftSide .subTitle input{
+	font: normal 1em/1 "Tw Cen MT";
+	color: #888;
+	padding: 5px 10px;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	border: 1px solid #888;
+	margin-top: 10px;
+	width: 330px;
+}
+
+.leftSide .subContent textarea{
+	font: normal .8em/1 "Tw Cen MT";
+	color: #333;
+	padding: 10px;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	border: 1px solid #888;
+	margin-top: 10px;
+	min-width: 330px;
+	max-width: 330px;
+	min-height: 400px;
+	max-height: 600px;
+}
+
+.userContactContent input{
+	font: normal 1em/1 "Tw Cen MT";
+	color: #fff;
+	padding: 2px 10px;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	border: 1px solid #fff;
+	margin-top: -3px;
+	width: 150px;
+	text-align: center;
+	background: url('../images/pattern/50opacity.png') repeat;
+}
+
+#saveProfileBtn{
+	float: right;
+	margin-right: 8px;
+}
+
+.userControl{
+	margin-top: 20px;
+	width: 360px;
+	float: right;
+	clear: both;
+}
+
+.leftSide .title{
+	position: relative;
+}
+
+.edit-delete{
+	position: absolute;
+	top: 0;
+	right: 0;
+}
+
+.edit-delete img{
+	cursor: pointer;
+}
+
+.edit-delete img:hover{
+	-moz-box-shadow: 0 0 2px #999;
+	-webkit-box-shadow: 0 0 2px #999;
+	box-shadow: 0px 0px 2px 2px #999;
+	-webkit-border-radius: 2px;
+	-moz-border-radius: 2px;
+	border-radius: 2px;
+}
+
+.rightSide .edit-delete img{
+	margin: 4px 10px;
+}
+
+
+/* ------------------- Footer ------------------ */
+#footer{
+	background: url('../images/pattern/brick-dark.png') repeat;
+	clear: both;
+	margin-top: 100px;
+	color: white;
+	padding: 20px;
+	/*
+	-moz-box-shadow: 0 0 5px #888;
+	-webkit-box-shadow: 0 0 5px#888;
+	box-shadow: 0px 0px 15px 5px #888;
+	*/
+	border-top: 2px solid #b7a4a6;
+}
+
+#footer a{
+	color: white;
+}	
+
+#footer p{
+	text-align: center;
+	font: normal .9em/0 "Tw Cen MT";
+}
